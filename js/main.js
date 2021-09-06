@@ -14,7 +14,7 @@ function getRndInteger(min, max) {
 // array
 var arr = [];
 // secondi
-var sec = 10;
+var sec = 30;
 // clock
 var clock;
 // user array
@@ -76,8 +76,8 @@ genera.addEventListener("click",
                         }
                         document.getElementById("seconds").classList.add("hide");
                         document.getElementById("btn-score").classList.add("open");
-                    }, 11000);   
-        }, 3000);
+                    }, 31000);   
+        }, 2000);
     }
 ); 
 // *
