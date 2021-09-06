@@ -1,0 +1,34 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* typo */
+/* button */
+/* common */
+/* form */
+.container-form {
+    display: none;
+}
+
+/* score */
+.btn-item {
+    display: none;
+}
+/* add */
+.open {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.color--transparent {
+    color: transparent;
+}
+
+.bg--green {
+    background-color: green;
+}

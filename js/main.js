@@ -13,41 +13,73 @@ function getRndInteger(min, max) {
 // *
 // array
 var arr = [];
-// Generazione casuale di 5 numeri
-while (arr.length < 5) {
-    var rndNumber = getRndInteger(1, 50);
-    if (arr.includes(rndNumber) == false) {
-        arr.push(rndNumber);
-    }
-}
-console.log(arr);
-// Alert array
-alert(arr);
+// secondi
+var sec = 10;
+// clock
+var clock;
 // user array
 var userArr = [];
 var foundNumbers = [];
-setTimeout(function() {
-    var i = 1;
-    while (userArr.length < 5) {
-        // user numbers
-        var userNumber = parseInt(prompt(`Inserisci il ${i}° numero presente nella lista`));
-        // controllo ripetizioni
-        while (userArr.includes(userNumber) == true) {
-            var userNumber = parseInt(prompt(`Attenzione hai già inserito questo numero! Riprova`));
+var score = document.getElementById("score");
+// btn genera
+var genera = document.getElementById("genera");
+// play-again
+var playAgain = document.getElementById("play-again");
+// *
+// *
+// *
+// *btn genera
+genera.addEventListener("click",
+    function() {
+        // Generazione casuale di 5 numeri
+        while (arr.length < 5) {
+            var rndNumber = getRndInteger(1, 50);
+            if (arr.includes(rndNumber) == false) {
+                arr.push(rndNumber);
+                document.getElementById("numbers").innerHTML += `<div class="memory-numbers">${rndNumber}</div>`;
+            }
         }
-        // controllo identità
-        if (!(isNaN(userNumber))) {
-            userArr.push(userNumber);
-            i++;
-        } 
+        console.log(`arr`, arr);
+        genera.classList.add("hide");
+        setTimeout( 
+            function() {
+                document.getElementById("numbers").classList.add("hide");     
+                document.getElementById("form").classList.add("open");   
+                clock = setInterval(
+                    function() {
+                        document.getElementById("seconds").innerHTML = sec;
+                        sec--;
+                        if (sec == -1) {
+                            clearInterval(clock);
+                        }
+                    }, 1000);  
+                    setTimeout(function() {
+                        for(let i=1; i<= 5; i++) {
+                            var userNumber = parseInt(document.getElementById(`user-number#${i}`).value);
+                            userArr.push(userNumber);
+                            document.getElementById(`user-number#${i}`).disabled = true;
+                        }
+                        console.log(`userArr`, userArr);
+                        //confronto array
+                        for (let n=0; n<5; n++) {
+                            if(arr.includes(userArr[n])) {
+                                foundNumbers.push(userArr[n]);
+                            }
+                        }
+                        // messaggio finale
+                        score.innerHTML = `Hai trovato ${foundNumbers.length} numeri (${foundNumbers})`;
+                        document.getElementById("seconds").classList.add("hide");
+                        document.getElementById("btn-score").classList.add("open");
+                    }, 11000);   
+        }, 3000);
     }
-    console.log(userArr);
-    //confronto array
-    for (let n=0; n<5; n++) {
-        if(arr.includes(userArr[n])) {
-            foundNumbers.push(userArr[n]);
-        }
+); 
+// *
+// *
+// * btn play-again
+playAgain.addEventListener("click",
+    function() {
+        location.reload();
     }
-    // messaggio finale
-    alert(`Hai trovato ${foundNumbers.length} numeri (${foundNumbers})`);
-}, 3000);
+);
+
