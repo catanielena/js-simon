@@ -44,7 +44,7 @@ genera.addEventListener("click",
         setTimeout( 
             function() {
                 document.getElementById("numbers").classList.add("hide");     
-                document.getElementById("form").classList.add("open");   
+                document.getElementById("form").classList.add("open-flex");   
                 clock = setInterval(
                     function() {
                         document.getElementById("seconds").innerHTML = sec;
@@ -67,7 +67,13 @@ genera.addEventListener("click",
                             }
                         }
                         // messaggio finale
-                        score.innerHTML = `Hai trovato ${foundNumbers.length} numeri (${foundNumbers})`;
+                        if (foundNumbers.length > 1) {
+                            score.innerHTML = `Hai trovato ${foundNumbers.length} numeri (${foundNumbers})`;
+                        } else if (foundNumbers.length == 1) {
+                            score.innerHTML = `Hai trovato ${foundNumbers.length} numero (${foundNumbers})`;
+                        } else {
+                            score.innerHTML = `Non hai trovato alcun numero`;
+                        }
                         document.getElementById("seconds").classList.add("hide");
                         document.getElementById("btn-score").classList.add("open");
                     }, 11000);   

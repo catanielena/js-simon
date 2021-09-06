@@ -9,25 +9,32 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>MEMORY</h1>
-			<button type="button" id="genera">genera</button>
-			<div id="numbers"></div>
+			<!-- container-top -->
+			<div class="container__top">
+				<h1>MEMORY</h1>
+				<button type="button" class="btn" id="genera">genera</button>
+				<div id="numbers" class="numbers-list"></div>
+			</div>
+			<!-- /container-top -->
+			<!-- container-form -->
+			<div id="form" class="container-form">
+				<input type="number" id="user-number#1">
+				<input type="number" id="user-number#2">
+				<input type="number" id="user-number#3">
+				<input type="number" id="user-number#4">
+				<input type="number" id="user-number#5">
+			</div>
+			<!-- /container-form -->
+			<!-- container-bottom -->
+			<div class="container__bottom">
+				<div id="seconds"></div>
+				<div id="score"></div>
+				<div class="btn-item" id="btn-score">
+					<button class="btn" id="play-again">play again</button>
+				</div>
+			</div>
+			<!-- /container-bottom -->
 		</div>
-
-		<div id="form" class="container-form">
-			<input type="number" id="user-number#1">
-			<input type="number" id="user-number#2">
-			<input type="number" id="user-number#3">
-			<input type="number" id="user-number#4">
-			<input type="number" id="user-number#5">
-		</div>
-
-		<div id="seconds"></div>
-		<div id="score"></div>
-		<div class="btn-item" id="btn-score">
-			<button class="btn" id="play-again">play again</button>
-		</div>
-
 		<script src="js/main.js"></script>
 	</body>
 </html> 

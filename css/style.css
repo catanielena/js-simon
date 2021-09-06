@@ -5,13 +5,95 @@
     box-sizing: border-box;
 }
 /* typo */
-/* button */
+@font-face {
+    font-family: bluuNext;
+    src: url(../font/BluuNext-Bold.otf);
+}
+
+@font-face {
+    font-family: diatypeV;
+    src: url(../font/ABCDiatypeVariable.ttf);
+}
+h1 {
+    font-weight: 300;
+    font-family: bluuNext;
+    font-size: 4rem;
+}
+/* button, input */
+button, input {
+    font-family: diatypeV;
+    background-color: transparent;
+    border-width: none;
+    border: 3px solid;
+    font-size: 3rem;
+}
+
+.btn {
+    text-transform: uppercase;
+    padding: 0 20px;
+}
 /* common */
+body {
+    font-family: diatypeV;    
+    font-size: 3rem;
+}
+
+.container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;
+}
+
+/* container__top */
+.numbers-list {
+    display: flex;
+}
+
+.memory-numbers {
+    flex-grow: 1;
+    border: 3px solid;
+    width: 20%;
+    
+}
+
+.memory-numbers:not(:last-child),
+.container-form input:not(:last-child) {
+    margin-right: 10px;
+}
+
+input {
+    width: 20%;
+    font-size: 3rem;
+    border: 3px solid;
+
+}
 /* form */
 .container-form {
     display: none;
 }
 
+#genera {
+    width: 20%;
+}
+/* container__bottom */
+.container__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#seconds {
+    top: 0;
+    width: calc(100% - 2rem);
+    height: calc(100vh - 2rem);
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* score */
 .btn-item {
     display: none;
@@ -19,6 +101,11 @@
 /* add */
 .open {
     display: block;
+}
+
+.open-flex {
+    display: flex;
+    flex-shrink: 1;
 }
 
 .hide {
@@ -31,4 +118,20 @@
 
 .bg--green {
     background-color: green;
+}
+
+@media screen and (max-width: 425px) {
+    body, input, button, h1 {
+        font-size: 2rem;
+    }
+    #genera {
+        width: 100%;
+    }
+
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+
+    
 }
