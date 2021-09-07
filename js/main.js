@@ -17,9 +17,6 @@ var arr = [];
 var sec = 30;
 // clock
 var clock;
-// user array
-var userArr = [];
-var foundNumbers = [];
 var score = document.getElementById("score");
 // btn genera
 var genera = document.getElementById("genera");
@@ -31,6 +28,9 @@ var playAgain = document.getElementById("play-again");
 // *btn genera
 genera.addEventListener("click",
     function() {
+        // user array
+        var userArr = [];
+        var foundNumbers = [];
         // Generazione casuale di 5 numeri
         while (arr.length < 5) {
             var rndNumber = getRndInteger(1, 50);
@@ -54,15 +54,17 @@ genera.addEventListener("click",
                         }
                     }, 1000);  
                     setTimeout(function() {
-                        for(let i=1; i<= 5; i++) {
-                            var userNumber = parseInt(document.getElementById(`user-number#${i}`).value);
-                            userArr.push(userNumber);
-                            document.getElementById(`user-number#${i}`).disabled = true;
+                        var userNumber = document.querySelectorAll(`input[type="number"]`);
+                        for(let i=0; i< arr.length; i++) {
+                            userArr.push(parseInt(userNumber[i].value));
+                            userNumber[i].disabled = true;
                         }
+                        console.log(`userNumber`, userNumber);
                         console.log(`userArr`, userArr);
+
                         //confronto array
-                        for (let n=0; n<5; n++) {
-                            if(arr.includes(userArr[n])) {
+                        for (let n=0; n<arr.length; n++) {
+                            if(arr.includes(userArr[n]) && foundNumbers.includes(userArr[n]) == false) {
                                 foundNumbers.push(userArr[n]);
                             }
                         }
